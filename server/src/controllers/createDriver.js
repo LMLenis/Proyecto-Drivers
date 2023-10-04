@@ -17,11 +17,10 @@ const createDriver = async(name,lastname,description,image,nationality,birthDay,
         birthDay: birthDay
     });
 
-    // if (team.length > 1){
-
-    // }
-    //  teamFound = await Team.findOne ({where: id = idTeam})
-    //  await DriverTeam.create({where: {Driverid: driver.id, Teamid: teamFound.id}})
+    //crea la asociación
+    
+    await driver.setTeams(idTeam);
+    
 
     return driver;
 
