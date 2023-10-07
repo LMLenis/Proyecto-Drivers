@@ -1,5 +1,7 @@
 const {getDrivers} = require('../controllers/getDrivers');
 const {getDriversBd} = require('../controllers/getDriversBd');
+//const estandarDriveApi = require('./estandarDriveApi');
+//const estandarDriveBd = require('./estandarDriveBd');
 const urldefault = 'https://es.wikipedia.org/wiki/Mr._Bean#/media/Archivo:Atkinson_Rowan.jpg'
 const bydefault = 'By Luisma'
 const driversAll = async (req, res) => {
@@ -15,6 +17,10 @@ const driversAll = async (req, res) => {
              }
          };
          const driversBd = await getDriversBd();
+         
+         //let apiStandar = estandarDriveApi(driversApi);
+         //let bdStandar = estandarDriveBd(driversBd);
+
          return res.status(200).json([...driversApi,...driversBd]);
 
      } catch (error) {
