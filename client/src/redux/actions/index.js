@@ -1,11 +1,11 @@
-import { GET_ALL_DRIVERS, GET_DRIVER_DETAIL, GET_DRIVER_NAME, CREATE_DRIVER, FILTER, ORDER } from "../actions/actions-types";
+import { GET_ALL_DRIVERS, GET_DRIVER_DETAIL, GET_DRIVER_NAME, GET_ALL_TEAMS, CREATE_DRIVER, FILTER, ORDER } from "../actions/actions-types";
 import axios from "axios";
 
 
 
 // getAllDrivers
 //Esta función debe realizar una petición al Back-End. Luego despachar una action con la data recibida.
-// End-Point: 'http://localhost:5000/drivers'.
+// End-Point: 'http://localhost:3001/drivers'.
 
 export const getAllDrivers = () => {
     const endpoint = 'http://localhost:3001/drivers';
@@ -26,7 +26,7 @@ export const getAllDrivers = () => {
 // getDriverDetail:
 // Esta función debe hacer una petición al Back-End. Ten en cuenta que tiene que recibir la variable "id" por
 // parámetro. Luego despachar una action con la data recibida.
-// End-Point: 'http://localhost:5000/drivers/:id'.
+// End-Point: 'http://localhost:3001/drivers/:id'.
 
 export const getDriverDetail = (id) => {
     const endpoint = 'http://localhost:3001/drivers/' + id;
@@ -49,10 +49,11 @@ export const getDriverDetail = (id) => {
 // getDriverName:
 // Esta función debe hacer una petición al Back-End. Recibe la variable "name" por
 // parámetro. Luego despacha una action con la data recibida.
-// End-Point: 'http://localhost:5000/drivesr/name'.
+// End-Point: 'http://localhost:3001/drivesr/name'.
 
 export const getDriverName = (name) => {
-    const endpoint = 'http://localhost:3001/drivers/' + name;
+    //console.log(name)
+    const endpoint = `http://localhost:3001/drivers/name?name=${name}`;
     
     return async (dispatch) => {
         try{
@@ -66,6 +67,25 @@ export const getDriverName = (name) => {
         }
     };
 };
+
+// getAllTeams
+//Esta función debe realizar una petición al Back-End para traer de la base de datos todos los Teams.
+// End-Point: 'http://localhost:3001/teams'.
+export const getAllTeams = () => {
+    const endpoint = 'http://localhost:3001/teams';
+    return async (dispatch) => {
+        try {    
+            const {data} = await axios.get(endpoint);
+            return dispatch({
+                type: GET_ALL_TEAMS,
+                payload: data
+       });
+       
+        } catch (error){
+            console.log(error);
+        }
+    };
+ };
 
 
 // 🟢 createDriver:

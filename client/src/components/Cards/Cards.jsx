@@ -1,12 +1,12 @@
-import CardList from "../CardList/Cardlist";
+import CardList from "../CardList/CardList";
 import React from "react";
-import "./Cards.module.css";
+import style from "./Cards.module.css";
 
 const Cards = ({drivers}) =>{
-   
+   let escuderias = [];
     return (
-     <div>
-      <h2>Drivers</h2>
+     <div className={style.container}>
+      
         { drivers.map((drive) => {
          if (Number(drive.id)){
              return <CardList
@@ -14,17 +14,23 @@ const Cards = ({drivers}) =>{
                    id = {drive?.id}
                    name={drive?.name.forename}
                    lastname = {drive?.name.surname}
-                   image={drive?.image}
+                   image={drive?.image.url}
                    teams={drive?.teams}            
                />
          } else {
+            let newDriverTeam = [];
+            for (let i=0; i<drive.Teams?.length; i++) {
+                newDriverTeam.push(drive.Teams[i].name)
+             }
+             escuderias = newDriverTeam.toString();
+             console.log(escuderias);
             return <CardList
                    key = {drive?.id}
                    id = {drive?.id}
                    name={drive?.name}
-                   lastname = {drive.lastname}
+                   lastname = {drive?.lastname}
                    image={drive?.image}
-                   teams={drive?.Teams.name}            
+                   teams={escuderias}            
                />
          }
         })}

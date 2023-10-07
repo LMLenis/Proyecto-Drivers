@@ -1,28 +1,26 @@
-import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import logo from '../../assets/logo F1.png'
+import './navbar.css'
 
-import './Navbar.module.css'
+const Navbar = () =>{
+    const location = useLocation();
 
-const Navbar = (onSearch) =>{
-
-    const [name, setName] = useState('');
-
-   const handleChange = (event) => {
-      setName(event.target.value)
-
-   }
-
-   return (
-      <div className={styledSearch.divContent}>
-         <input type='search' onChange={handleChange} value ={name}/>
-         <button onClick={() => onSearch(name)}>Buscar</button>
-      </div>
-   );
-    
+   return(
+      <nav className='navbar-cont'>
+        <div className = 'navbar-img-cont'>
+          <img src={logo} alt=''/>
+        </div>
+        {
+            location.pathname !=='/home'&&
+            <div className='navbar-links-cont'><Link to='/home' >HOME</Link></div>
+        }
+        {
+            location.pathname !=='/form'&&
+            <div className='navbar-links-cont'><Link to='/form' >CREATE DRIVER</Link></div>
+        }
+        </nav>
+  )
 }
+    
 
-// return (
-//     <div>
-//         <h1>Esta es la Navbar</h1>
-//     </div>
-//     )
 export default Navbar;

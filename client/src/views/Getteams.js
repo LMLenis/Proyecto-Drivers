@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-
 const getteams = async () => {
     try {
        
-       const URL = 'http://localhost:3001/teams';
-       const {data} = await axios(URL)
+       const endpoint = 'http://localhost:3001/teams';
+       const {data} = await axios(endpoint)
        
        return data;
        

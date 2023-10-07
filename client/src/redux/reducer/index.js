@@ -1,9 +1,11 @@
-import { GET_ALL_DRIVERS, GET_DRIVER_DETAIL, GET_DRIVER_NAME, CREATE_DRIVER, FILTER, ORDER } from "../actions/actions-types";
+import { GET_ALL_DRIVERS, GET_DRIVER_DETAIL, GET_DRIVER_NAME, CREATE_DRIVER, FILTER, ORDER, GET_ALL_TEAMS } from "../actions/actions-types";
 
 
 const initialState = {
     allDrivers: [],
-    driverDetail: {}
+    driverDetail: {},
+    driverShow: [],
+    allTeams: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +13,8 @@ const reducer = (state = initialState, action) => {
         case GET_ALL_DRIVERS:
             return {
                 ...state,
-                allDrivers: action.payload
+                allDrivers: action.payload,
+                driverShow: action.payload
             }
         
         case GET_DRIVER_DETAIL:
@@ -20,11 +23,17 @@ const reducer = (state = initialState, action) => {
                 driverDetail: action.payload
             }
         case GET_DRIVER_NAME:
+            
             return {
                 ...state,
-                driverDetail: action.payload
+                driverShow: action.payload
             }
-
+        
+        case GET_ALL_TEAMS:
+            return {
+                ...state,
+                allTeams: action.payload
+            }
 
         case CREATE_DRIVER:
             return {
@@ -33,23 +42,23 @@ const reducer = (state = initialState, action) => {
             }
 
         case FILTER:
-            if(action.payload === 'team'){
-            let allDriversFiltered = state.allDrivers.filter((driver) => driver.teams === action.payload)
-            }
+          
             if(action.payload === 'baseDatos'){
-            let allDriversFiltered = state.allDrivers.filter((driver) =>Number(driver.id)===false)
-            return {...state, allDrivers: allDriversFiltered}
+            let allDriversFiltered = state.allDrivers.filter((driver) =>typeof driver.id != "number")
+            return {...state, driverShow: allDriversFiltered}
             }
             if(action.payload === 'api'){
-            let allDriversFiltered = state.allDrivers.filter((driver) =>Number(driver.id) === true)
-            return {...state,allDrivers: allDriversFiltered}
+            let allDriversFiltered = state.allDrivers.filter((driver) =>typeof driver.id === "number")
+            return {...state,driverShow: allDriversFiltered}
             }
             if(action.payload === 'allDrivers'){
-                return {...state, allDrivers: [...state.allDrivers]}
+                return {...state, driverShow: [...state.allDrivers]}
             } else {
-                let allDriversFiltered = state.allDrivers.filter((driver) => driver.teams === action.payload)
-                return {...state, allDrivers: allDriversFiltered}
-            }
+                    let allDriversFiltered = state.allDrivers.filter((driver) => driver.teams?.includes(action.payload))
+                    return {...state, driverShow: allDriversFiltered}
+                }
+                 
+            
         
         
         case ORDER:
@@ -57,9 +66,9 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 allDrivers:
-                    action.payload === 'A' 
-                    ? allDriversOrder.sort((a,b) => a.name - b.name)        
-                    : allDriversOrder.sort((a,b) => a.birthDay - b.birthDay)
+                    action.payload === 'alphabetical' 
+                    ? allDriversOrder.sort((a,b) => typeof a.id ==="number"? a.name.forename - b.name.forename: a.name-b.name )        
+                    : allDriversOrder.sort((a,b) => typeof a.id ==="number"? a.dob - b.dob :a.birthDay - b.birthDay)
 
             }
 

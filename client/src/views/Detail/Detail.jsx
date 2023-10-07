@@ -1,47 +1,58 @@
-// import { useEffect } from "react";
-// import { useParams } from "react-ruter-dom";
-// import { useDispatch, useSelector } from "react-redux";
-import "./Detail.module.css";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getDriverDetail } from "../../redux/actions";
+import "./detail.css";
 
 
 const Detail = () =>{
-    //  const dispatch = useDispatch();
-    //  const {id} = useParams ();
+      const dispatch = useDispatch();
+      const {id} = useParams ();
 
-    //  useEffect (() => {
-    //     dispatch(getDriverDetail(id))
-    //  }, [id]);
+      console.log(id);
+       useEffect (() => {
+          dispatch(getDriverDetail(id))
+       }, [id]);
 
-    // const driver = useSelector((state)=> state.driverDetail)
-
-
-    return (
+      const driver = useSelector((state)=> state.driverDetail)
     
-    <div>
-        {
-        Number(driver.id) ? <h1>Name: {`${driver?.name.forename} ${driver?.name.surname}`}</h1>
-        : <h1>Name: {`${driver?.name} ${driver?.lastname}`}</h1>
-        }
+      let newDriverTeam = [];
+      if (!Number(id)){
+         for (let i=0; i<driver.Teams?.length; i++) {
+            newDriverTeam.push(driver.Teams[i].name)
+         }
+      }
+      let escuderia = newDriverTeam.toString();
+         
+     return (
+     <div className='detailcontainer'>
+      <div className= 'card-detailcontainer'>
+         <div className = 'header'>
+         {
+         Number(driver.id) ? <img src={driver.image.url} alt={driver.name.forename}/>
+         : <img src={driver.image} alt={driver.name}/>
+         }
+         {
+         Number(driver.id) ? <h1> {`${driver?.name.forename} ${driver?.name.surname}`}</h1>
+         : <h1>Name: {`${driver?.name} ${driver?.lastname}`}</h1>
+         }
         <h2>Nationality: {driver?.nationality}</h2>
-        <h2>Description: {driver?.description}</h2>
         {
-        Number(driver.id) ? <h2>Birth Day: {driver?.dob}</h2>
-        : <h2>Birth Day: {driver.birthDay}</h2>
-        }
-        
-        {
-        Number(driver.id) ? <h2>Escuderias: {driver?.teams}</h2>
-        : <h2>Escuderias: {driver?.Teams.name}</h2>
-        }
-        <img src={driver?.image} alt={driver?.name}/>
-    </div>
-    )
-};
-    // return (
-    // <div>
-    //     <h1>This Details</h1>
-    // </div>
-    // )
+         Number(driver.id) ? <h2>Birth Day: {driver?.dob}</h2>
+         : <h2>Birth Day: {driver.birthDay}</h2>
+         }
+          {
+         Number(driver.id) ? <h2>Escuderias: {driver?.teams}</h2>
+         : <h2>Escuderias: {escuderia}</h2>
+         }
+         </div>
+         <div className="descripcion">
+            <p>Description: {driver?.description}</p>
+        </div>
+      </div>
+     </div>
+     )
+     }
 
 
 export default Detail;

@@ -1,22 +1,22 @@
-//import { useState } from 'react';
-import './App.css';
 import Landing from './views/Landing/Landing';
 import Home from './views/Home/Home';
 import Detail from "./views/Detail/Detail";
 import Form from "./views/Form/Form";
-import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import { Routes, Route, useLocation} from "react-router-dom";
+import './App.css';
 
 function App() {
-  //const [count, setCount] = useState(0)
-
+  const location = useLocation()
+    
    return (
-    // <div classnme="App">
-    //   <p>Hola mundo</p>
-    // </div>
-
-    //<Navbar/> OJO!
-     
+       
       <div>
+       
+       {
+            location.pathname !=='/'&& <Navbar/>
+       }
+       
         <Routes>
           <Route path='/' element = {<Landing/>} />
           <Route exact path = '/home' element = {<Home/>}/>
