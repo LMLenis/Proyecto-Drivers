@@ -1,6 +1,6 @@
 .form{
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     align-items: center;
   }
 
-  .form input {
+  .form input, form textarea {
     width: 200%;
     height: 30px;
     margin: 0.5rem;
@@ -16,8 +16,20 @@
 
   .form button {
     padding: 0.5em 1em;
+    margin: 1em;
     border: none;
     background: rgb(100, 200, 255);
     cursor: pointer;
+  }
+
+  .warning{
+    border:solid red 1px;
+    border-radius: 0.2em;
+  }
+
+  .danger{
+    font-size: 10px;
+    color: red;
+    margin-left: 10em;
   }
   

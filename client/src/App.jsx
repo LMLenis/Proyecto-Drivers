@@ -22,7 +22,7 @@ function App() {
           <Route exact path = '/home' element = {<Home/>}/>
           <Route path='/home/:id' element={<Detail/>}/>
           <Route path = '/form' element={<Form/>}/>
-        </Routes>;
+        </Routes>
       </div>
     
    );

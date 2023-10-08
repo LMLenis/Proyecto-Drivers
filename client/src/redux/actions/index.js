@@ -99,6 +99,7 @@ export const getAllTeams = () => {
 export const createDriver = (newDriver) => {
     const endpoint = 'http://localhost:3001/drivers'
     
+    console.log(newDriver);
     return async (dispatch) => {
 
         try{

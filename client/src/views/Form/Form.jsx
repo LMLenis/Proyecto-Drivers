@@ -2,44 +2,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createDriver, getAllTeams } from "../../redux/actions/index";
-import getteams from "../Getteams";
-import validate from "../validate"
+import validate from "../../functions/validate"
 import './form.css'
 
 
-
-// const validate = (state) => {
-//     const errors = {};
-//     const patronUrl = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-    
-//     if (state.name.length < 5){
-//       errors.name = 'The name must be five characters long';
-//     }
-//     if (state.name.length > 20){
-//       errors.name = 'The name must be less than twenty characters long'
-//     }
-//     if (!state.movies.length < 5) {
-//     errors.movies = 'The movies must be five characters long'
-//     }
-//     if (typeof(state.age) != "number") {
-//     errors.age = 'Only numbers'
-//     }
-//     if (state.age.length < 2) {
-//       errors.age = 'The age must be two digits'
-//     }
-//     if (state.summary.length < 50){
-//     errors.summary = 'The summary must be fifty characters long'
-//     }
-//     if (!patronUrl.test(state.image)){
-//       errors.image = 'The image must be a URL'
-//     }
-    
-    
-//     return errors;
-// }
-
-//const teams = await getteams();
-     
+   
 const Form = () => {
     
     const dispatch = useDispatch();
@@ -84,39 +51,53 @@ const Form = () => {
     
       const handleSubmit = (evento) => {
         evento.preventDefault();
-        dispatch(createDriver(input))
+        let long = Object.values(errors);
+        if (long.length === 0) {
+          alert ("Driver Created")
+          setInput({name:'', lastname: '', description:'', image: '', nationality: '', birthDay:'', idTeam: []})
+          setErrors({name:'', lastname: '', description:'', image: '', nationality: '', birthDay:'', idTeam: []})
+          dispatch(createDriver(input))
+        }else {
+          alert ("Must fullfill all inputs")
+        }
+        
       }
     
     
       return (
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
-        <input type="text" name ="name" value={input.name} onChange ={handleChange}/>
-        {errors.name && <p>{errors.name}</p>}
+        <input type="text" name ="name" value={input.name} onChange ={handleChange}
+        className = {errors.name && 'warning'}></input>
+        {errors.name && <p className ='danger'>{errors.name}</p>}
         
         <label htmlFor="lastname">Lastname:</label>
-        <input type="text" name = "lastname"value={input.lastname} onChange ={handleChange}/>
-        {errors.lastname && <p>{errors.lastname}</p>}
+        <input type="text" name = "lastname"value={input.lastname} onChange ={handleChange}
+        className = {errors.lastname && 'warning'}/>
+        {errors.lastname && <p className = 'danger'>{errors.lastname}</p>}
 
         <label htmlFor="birthDay">Birth Day:</label>
-        <input type="dateonly" name="birthDay" value={input.birthDay} onChange = {handleChange}/>
-        {errors.birthDay && <p>{errors.birthDay}</p>}
+        <input type="text" name="birthDay" value={input.birthDay} onChange = {handleChange}
+        className = {errors.birthDay && 'warning'}/>
+        {errors.birthDay && <p className ='danger'>{errors.birthDay}</p>}
         
         <label htmlFor="description">Description:</label>
-        <input type="textarea" name="description" value={input.description} onChange = {handleChange}/>
+        <textarea type="text" name="description" value={input.description} onChange = {handleChange}/>
         {errors.description && <p>{errors.description}</p>}
         
         <label htmlFor="image">Image:</label>
-        <input type="text" name = "image" value={input.image} onChange={handleChange}/>
-        {errors.image && <p>{errors.image}</p>}
+        <input type="text" name = "image" value={input.image} onChange={handleChange}
+        className = {errors.image && 'warning'}/>
+        {errors.image && <p className='danger'>{errors.image}</p>}
         
         <label htmlFor="nationality">Nacionality:</label>
-        <input type="text" name = "nationality" value={input.nationality} onChange={handleChange}/>
-        {errors.nationality && <p>{errors.nationality}</p>}
+        <input type="text" name = "nationality" value={input.nationality} onChange={handleChange}
+        className = {errors.nationality && 'warning'}/>
+        {errors.nationality && <p className='danger'>{errors.nationality}</p>}
         
-        
-        <select onChange = {handleChange}name="teams">
-            {teams?.map((team) => <option key={team.id} value={team.name}>{team.name}</option>)}
+        <label>Escuderias:</label>
+        <select onChange = {handleChange}name="idTeam" multiple>
+            {teams?.map((team) => <option key={team.id} value={input.idTeam}>{team.name}</option>)}
         </select>
 
        

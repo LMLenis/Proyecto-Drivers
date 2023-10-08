@@ -3,10 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height:1200px;
-  /*background: #5684c9;*/
+  background: #5684c9;
   font-family: sans-serif;
-  padding: 0 10px;
+  /*padding: 0 10px;*/
 }
 
 .card-detailcontainer{
@@ -29,13 +28,8 @@
 }
 
 .header, .descripcion{
-  padding: 20px;
+  padding: 10px;
   text-align:center;
-}
-
-.header a{
-  position:relative;
-  display:block;
 }
 
 .header img{
@@ -48,10 +42,12 @@
 
 .header h1{
   color: #f0522a;
+  font-size: 30px;
 }
 
 .header h2{
   margin-bottom: 20px;
+  font-size: 20px
 }
 
 .descripcion{
@@ -61,7 +57,7 @@
 .descripcion p{
   margin:20px 30px;
   padding:0;
-  font-size:12px;
+  font-size:25px;
   font-weight:10;
 }
 

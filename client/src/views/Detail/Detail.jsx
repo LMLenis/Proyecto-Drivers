@@ -34,12 +34,12 @@ const Detail = () =>{
          }
          {
          Number(driver.id) ? <h1> {`${driver?.name.forename} ${driver?.name.surname}`}</h1>
-         : <h1>Name: {`${driver?.name} ${driver?.lastname}`}</h1>
+         : <h1> {`${driver?.name} ${driver?.lastname}`}</h1>
          }
-        <h2>Nationality: {driver?.nationality}</h2>
+        <h2> {driver?.nationality}</h2>
         {
-         Number(driver.id) ? <h2>Birth Day: {driver?.dob}</h2>
-         : <h2>Birth Day: {driver.birthDay}</h2>
+         Number(driver.id) ? <h2> {driver?.dob}</h2>
+         : <h2> {driver.birthDay}</h2>
          }
           {
          Number(driver.id) ? <h2>Escuderias: {driver?.teams}</h2>
@@ -47,7 +47,7 @@ const Detail = () =>{
          }
          </div>
          <div className="descripcion">
-            <p>Description: {driver?.description}</p>
+            <p>{driver?.description}</p>
         </div>
       </div>
      </div>

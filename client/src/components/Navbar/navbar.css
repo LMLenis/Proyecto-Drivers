@@ -1,18 +1,17 @@
 .navbar-cont{
-    
+    /*position: fixed;*/
     justify-content: space-around;
     align-items:center;
     display: flex;
-    align-items: center;
     border: 1px solid #00539F;
-    height:50px;
+    height:45px;
     width: 100%;
     margin: 0;
-    padding:0;
-    /*background-color:#00539F;*/
+    padding:0px;
+    background-color:#00539F;
     list-style-type: none;
     text-align:center; 
-    background-color: #3434b1;
+    
 }
 
 .navbar-img-cont img{

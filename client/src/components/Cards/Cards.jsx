@@ -7,7 +7,7 @@ const Cards = ({drivers}) =>{
     return (
      <div className={style.container}>
       
-        { drivers.map((drive) => {
+        { drivers?.map((drive) => {
          if (Number(drive.id)){
              return <CardList
                    key = {drive?.id}
@@ -15,7 +15,8 @@ const Cards = ({drivers}) =>{
                    name={drive?.name.forename}
                    lastname = {drive?.name.surname}
                    image={drive?.image.url}
-                   teams={drive?.teams}            
+                   teams={drive?.teams}
+                   birthDay={drive?.dob}            
                />
          } else {
             let newDriverTeam = [];
@@ -23,14 +24,15 @@ const Cards = ({drivers}) =>{
                 newDriverTeam.push(drive.Teams[i].name)
              }
              escuderias = newDriverTeam.toString();
-             console.log(escuderias);
+             //console.log(escuderias);
             return <CardList
                    key = {drive?.id}
                    id = {drive?.id}
                    name={drive?.name}
                    lastname = {drive?.lastname}
                    image={drive?.image}
-                   teams={escuderias}            
+                   teams={escuderias}
+                   birthDay={drive?.birthDay}            
                />
          }
         })}

@@ -3,7 +3,6 @@ import Cards from "../../components/Cards/Cards";
 import { useEffect, useState} from "react";
 import { getAllDrivers, orderDrivers, filterDrivers, getDriverName, getAllTeams } from "../../redux/actions/index";
 import { useSelector, useDispatch } from "react-redux";
-import getteams from "../Getteams";
 import "./home.css";
 
 
@@ -59,16 +58,15 @@ const Home = () =>{
 
     return (
         <div>
-            <button type = "submit" onClick = {handleSubmitAll}>All</button>
+            <button className='button' type = "submit" onClick = {handleSubmitAll}>All</button>
 
             <input type='search' onChange={handleChange} placeholder = "Search"/>
             <button type = "submit" onClick= {handleSubmit}>Search</button>
             
-            <label>Order</label>
-            
-            <select onChange ={handleOrder}>
-                
-                <option value="alphabetical">in alphabetical order</option>
+            <label>Order</label>         
+            <select onChange ={handleOrder}> 
+                <option selected="true"disabled>Select option</option>           
+                <option value="alpha">in alphabetical order</option>
                 <option value="birthDay">birth day order</option>
             </select>
             <label>Team</label>
@@ -78,7 +76,7 @@ const Home = () =>{
 
              <label>Origin</label>      
              <select onChange = {handleFilter}> 
-                
+                <option selected="true" disabled>Select option</option>
                 <option value="baseDatos">Data Base Drivers</option>
                 <option value="api">Api Drivers</option>
                 <option value="allDrivers">All Drivers</option>

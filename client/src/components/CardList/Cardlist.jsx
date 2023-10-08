@@ -6,10 +6,10 @@ import  "./cardList.css";
 
 
 
-const CardList = ({ id, name, lastname, image, teams }) => {
+const CardList = ({ id, name, lastname, image, teams, birthDay }) => {
     //const dispatch = useDispatch();
   
-   console.log(id, teams)
+   //console.log(id, teams)
    return (
     <div className ='container.card'>   
         <div className='title'>
@@ -23,6 +23,7 @@ const CardList = ({ id, name, lastname, image, teams }) => {
             <div className='card'>
                 <img src= {image} alt={name} />
                 <p className ='text'>{teams}</p>
+                <p className ='text'>{birthDay}</p>
             </div>
         </div>
     </div>
