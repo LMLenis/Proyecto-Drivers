@@ -9,7 +9,7 @@ const Detail = () =>{
       const dispatch = useDispatch();
       const {id} = useParams ();
 
-      console.log(id);
+      
        useEffect (() => {
           dispatch(getDriverDetail(id))
        }, [id]);

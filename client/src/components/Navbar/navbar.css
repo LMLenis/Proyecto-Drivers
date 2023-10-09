@@ -1,25 +1,32 @@
 .navbar-cont{
     /*position: fixed;*/
     justify-content: space-around;
+    /*justify-content: center;*/
     align-items:center;
     display: flex;
+    flex-direction: row;
     border: 1px solid #00539F;
-    height:45px;
+    height:30px;
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
     padding:0px;
-    background-color:#00539F;
+    background-color:#7bb3e8;
     list-style-type: none;
     text-align:center; 
+    flex-wrap: wrap;
     
 }
 
 .navbar-img-cont img{
-    width: 4rem;
+    width: 3rem;
 }
 
 .navbar-links-cont{
     display: flex;
     justify-content:space-between;
 
+}
+
+.links{
+    color:aliceblue;
 }

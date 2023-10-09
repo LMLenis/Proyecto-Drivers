@@ -3,7 +3,6 @@ const filterTeams = (paramDriver, paramTeam) => {
     let filteredByBase = [];
     let filteredByApi = [];
 
-    console.log(paramDriver);
 
     for (let i=0; i<paramDriver.length; i++){
         if(typeof paramDriver[i].id === "number"){

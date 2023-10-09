@@ -12,6 +12,8 @@ const Form = () => {
     const dispatch = useDispatch();
     const teams = useSelector((state) => state.allTeams);
 
+    let sortedTeams = teams.sort((a,b) => a.name.localeCompare(b.name) );
+
     const [input, setInput] = useState({
         name: '',
         lastname: '',
@@ -53,11 +55,18 @@ const Form = () => {
         evento.preventDefault();
         let long = Object.values(errors);
         if (long.length === 0) {
-          alert ("Driver Created")
+          let selected = [];
+          for (let option of document.getElementById('idTeam').options){
+            if (option.selected) selected.push(option.value);
+          }
+          input.idTeam = selected;
+          console.log(input)
+          dispatch(createDriver(input))
           setInput({name:'', lastname: '', description:'', image: '', nationality: '', birthDay:'', idTeam: []})
           setErrors({name:'', lastname: '', description:'', image: '', nationality: '', birthDay:'', idTeam: []})
-          dispatch(createDriver(input))
+          
         }else {
+          
           alert ("Must fullfill all inputs")
         }
         
@@ -65,7 +74,7 @@ const Form = () => {
     
     
       return (
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit} name ='form'>
         <label htmlFor="name">Name:</label>
         <input type="text" name ="name" value={input.name} onChange ={handleChange}
         className = {errors.name && 'warning'}></input>
@@ -96,13 +105,13 @@ const Form = () => {
         {errors.nationality && <p className='danger'>{errors.nationality}</p>}
         
         <label>Escuderias:</label>
-        <select onChange = {handleChange}name="idTeam" multiple>
-            {teams?.map((team) => <option key={team.id} value={input.idTeam}>{team.name}</option>)}
+        <select onChange = {handleChange}id ="idTeam" multiple >
+            {sortedTeams?.map((team) => <option key={team.id} value={team.id} >{team.name}</option>)}
         </select>
-
+        
        
-    
-        <button type="submit">Create</button>
+        
+        <button id="submit">Create Driver</button>
       
       </form>
       )

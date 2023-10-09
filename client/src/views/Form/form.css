@@ -8,9 +8,15 @@
     align-items: center;
   }
 
-  .form input, form textarea {
+  .form input {
     width: 200%;
     height: 30px;
+    margin: 0.5rem;
+  }
+
+  form textarea {
+    width: 200%;
+    height: 50px;
     margin: 0.5rem;
   }
 

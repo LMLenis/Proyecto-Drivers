@@ -4,10 +4,42 @@
 
 }
 
-.homecont button {
+.button {
     padding: 0.5em 1em;
     margin: 1em;
     border: none;
     background: rgb(100, 200, 255);
     cursor: pointer;
+    font-size: 12px;
+  }
+
+  .button2 {
+    padding: 0.5em 1em;
+    margin: 0;
+    /*border: none;*/
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .label {
+    padding: 0.5em 0.5em;
+    margin: 0.5em;
+    font-size: 12px;
+    color: red
+
+  }
+
+  .label2 {
+    padding: 0.5em 0.5em;
+    margin: 0.5em;
+    font-size: 12px;
+
+  }
+
+  .input {
+    width: 30px;
+    height: 15px;
+    margin: 0.5rem;
+    text-align: center;
+    border-color: 1px solid #242424;
   }
