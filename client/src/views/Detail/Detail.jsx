@@ -1,3 +1,5 @@
+//Este componente renderiza el detalle del driver dependiendo si es de la API o de la base de datos
+
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

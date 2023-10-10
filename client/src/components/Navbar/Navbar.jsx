@@ -1,3 +1,6 @@
+//Este componente renderiza la barra de navegación, dependiendo su ubicación esconde o muestra el 
+//boton necesario.
+
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo F1.png'
 import './navbar.css'

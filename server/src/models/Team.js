@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 
+// se define una tabla de dos campos id y name
+
 module.exports = (sequelize) => {
    sequelize.define('Team', {
       id: {

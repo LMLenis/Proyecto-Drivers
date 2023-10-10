@@ -89,7 +89,7 @@ export const getAllTeams = () => {
  };
 
 
-// 🟢 createDriver:
+// createDriver:
 // Esta función debe recibir una variable "newDriver" por parámetro.
 // Luego retornar una action que, en su propiedad payload:
 //    - haga un spread operator de la variable newDriver, para copiar todo su contenido.
@@ -100,10 +100,11 @@ export const getAllTeams = () => {
 export const createDriver = (newDriver) => {
     const endpoint = 'http://localhost:3001/drivers'
     
-    console.log(newDriver);
+    //console.log(newDriver);
     return async (dispatch) => {
         try{
             const {data} = await axios.post(endpoint, newDriver);
+
             return dispatch({
                 type: CREATE_DRIVER,
                 payload: data,           
@@ -114,16 +115,21 @@ export const createDriver = (newDriver) => {
     };  
 }
 
-export const filterDrivers = (team) => {
+//filterDrivers:
+//Esta función se encarga de filtrar por equipos, drivers de base de datos y drivers de Api .
+export const filterDrivers = (parameter) => {
     return {
         type: FILTER,
-        payload: team
+        payload: parameter
     }
 };
 
+//orderDrivers:
+//Esta función se encarga de ordenar por alfabetico y fecha de nacimiento
 export const orderDrivers = (orden) => {
     return {
         type: ORDER,
         payload: orden
     }
 };
+

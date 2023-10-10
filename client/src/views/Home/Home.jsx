@@ -1,3 +1,5 @@
+//Componente principal de la aplicación
+
 import React from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { useEffect, useState} from "react";
@@ -10,16 +12,19 @@ import "./home.css";
 
 const Home = () =>{
 
+    //trae los drivers y los teams
     const dispatch = useDispatch();
     const drivers = useSelector((state) => state.driverShow);
     const teams = useSelector((state) => state.allTeams);
+    //estado para el manejo de la busqueda por name
     const [searchString, setSearchString] = useState("");
+    //estado que define el manejo de los errores
     const [error, setError] = useState("");
 
     // se ordenan los teams para la busqueda
     let sortedTeams = teams.sort((a,b) => a.name.localeCompare(b.name) );
     
-    //Pagination
+    //Variables de Pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [input, setInput] = useState(1);
     const elementsPerPage = 9;
@@ -29,20 +34,21 @@ const Home = () =>{
     const totalPages =Math.ceil(drivers.length/elementsPerPage);
     const enter = 13;
 
+    //dispara al estado traer todos los teams y actualiza cada que hay un nuevo dispatch
     useEffect(() => {
-      dispatch(getAllDrivers())
       dispatch(getAllTeams())
     }, [dispatch])
 
    
     
-
+//maneja el input de la busqueda por Name
       const handleChange = (event) => {
         event.preventDefault();
         setSearchString(event.target.value);
         setError("")
       }
 
+      //maneja el submit de la busqueda por Name
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -54,7 +60,7 @@ const Home = () =>{
         }
         
     }
-    
+    //maneja la seleccion para ordenar
     const handleOrder = (event) => {
         dispatch(orderDrivers(event.target.value));
         setCurrentPage(1)
@@ -62,19 +68,21 @@ const Home = () =>{
         
     }
 
+    //maneja la selección para filtrar
     const handleFilter = (event) => {
         dispatch(filterDrivers(event.target.value));
         setCurrentPage(1)
         setInput(1)
     }
-
+    //maneja el submit para retirar todos los filtros
     const handleSubmitAll = (event) => {
         event.preventDefault();
         dispatch(getAllDrivers());
         setCurrentPage(1)
         setInput(1)
+        setError("");
     }
-
+    //maneja el paginado next y back
     const pageHandler = (event) =>{
         event.preventDefault();
         if (event.target.value === "next"){
@@ -90,7 +98,7 @@ const Home = () =>{
             }
         }
     };
-
+    //maneja el enter del paginado
     const enterInput = (event) =>{
         if(event.keyCode == enter){
            if(event.target.value <= totalPages && event.target.value >0){
@@ -99,7 +107,7 @@ const Home = () =>{
             }
         }  
     };
-
+    //maneja el input del paginado
     const pageChange = (event) => {
         setInput(event.target.value)
     }

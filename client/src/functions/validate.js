@@ -1,3 +1,5 @@
+//Funcion encargada de validar los inputs del formulario y retorna el objeto errores
+
 const validate = (state) => {
     const errors = {};
     const patronUrl = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;

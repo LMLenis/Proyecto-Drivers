@@ -1,4 +1,5 @@
-//import React from "react";
+//Este componente se encarga de recibir la información de un nuevo driver
+
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createDriver, getAllTeams } from "../../redux/actions/index";
@@ -64,15 +65,15 @@ const Form = () => {
             if (option.selected) selected.push(option.value);
           }
           input.idTeam = selected;
-          console.log(input)
+          
           await dispatch(createDriver(input))
+          setErrorSubmit(`Driver ${input.name} ${input.lastname} has been created`)
           setInput({name:'', lastname: '', description:'', image: '', nationality: '', birthDay:'', idTeam: []})
           setErrors({name:'', lastname: '', description:'', image: '', nationality: '', birthDay:'', idTeam: []})
           
           }else {
             setErrorSubmit("Must fullfill all inputs without errors");
-            // document.querySelector('.mensaje-error').textContent = "Must fullfill all inputs without errors";
-            // document.querySelector('.mensaje-error').computedStyleMap.display = 'block';
+           
           }
         }catch (error) {
           setErrorSubmit(error)
@@ -102,7 +103,7 @@ const Form = () => {
       document.querySelector("#nationality")?.addEventListener("keyup", habilitar);
 
 
-      return (
+      return <div className = 'content'>
       <form className="form" onSubmit={handleSubmit} name ='form'>
 
         <span>{errorSubmit}</span>
@@ -124,7 +125,7 @@ const Form = () => {
         
         <label htmlFor="description">Description:</label>
         <textarea type="text" name="description" value={input.description} onChange = {handleChange}/>
-        {errors.description && <p>{errors.description}</p>}
+        {errors.description && <p className ='danger'>{errors.description}</p>}
         
         <label htmlFor="image">Image:</label>
         <input type="text" name = "image" value={input.image} onChange={handleChange}
@@ -148,7 +149,7 @@ const Form = () => {
       
         
       </form>
-      )
+      </div>
     }
 
 

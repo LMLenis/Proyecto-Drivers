@@ -8,6 +8,8 @@ const { teamAll } = require('../handlers/teamAll');
 
 const router = Router();
 
+// a continuación definimos las rutas que se conectaran con el cliente
+
 router.get('/drivers/name', firstDrivers);
 
 router.get('/drivers', driversAll);

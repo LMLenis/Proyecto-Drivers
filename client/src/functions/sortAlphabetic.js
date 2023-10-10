@@ -1,3 +1,12 @@
+//Esta funcion se encarga de organizar por orden alfabetico los drivers. 
+//El parametro recibe todos los drivers
+
+//Para hacer esto primero debemos crear un arreglo de drivers de API + BD donde tenga el id y el name.
+//Aplicar la funcion sort.
+//Cuando ya esten ordenados corremos una ultima función para comparar el id del arreglo ordenado
+//con el id de los objetos originales y organizar estos últimos
+
+
 
 const sortAlphabetic = (paramDrivers) => {
     let arrayDriver= [];

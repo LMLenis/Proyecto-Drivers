@@ -1,13 +1,29 @@
+//Componente de portada
+
 import { Link } from "react-router-dom"
-import  styledLanding from './Landing.module.css'
+import { useEffect } from "react";
+import { getAllDrivers } from "../../redux/actions/index";
+import { useDispatch } from "react-redux";
+import  './landing.css'
 import photoBack from "../../assets/Formula1.png"
 
 const Landing = () =>{
+
+    const dispatch = useDispatch();
+    // Trae todos los drivers para renderizar en la Home
+
+    useEffect(() => {
+        dispatch(getAllDrivers())
+    
+      }, [])
+
+
     return (
-     <div className={styledLanding.divContent}>
-        <button className={styledLanding.button}><Link to='/home' >CONTINUAR</Link></button>
-        <br/>
-        <img src = {photoBack} width="1024px" heigtht="350px" alt='' />   
+     <div className="button-container">
+        
+        <img src = {photoBack} width="1300px" heigtht="380px" alt='' /> 
+        
+        <button ><Link to='/home' >CONTINUAR</Link></button>  
      </div>
 
     )

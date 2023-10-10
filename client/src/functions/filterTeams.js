@@ -1,3 +1,9 @@
+//Esta funcion se encarga de filtrar por los equipos. El primer parametro recibe todos los drivers
+//y el segundo recibe el equipo seleccionado.
+
+//En la Api los equipos vienen en formato string
+//En la Base de datos vienen en formato Arreglo de objetos con propiedad name.
+
 
 const filterTeams = (paramDriver, paramTeam) => {
     let filteredByBase = [];

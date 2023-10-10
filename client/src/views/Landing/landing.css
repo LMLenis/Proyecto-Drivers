@@ -13,21 +13,22 @@
     
   } */
 
-/*   
+ 
 .button-container {
  display:inline-block;
  position:relative;
-}*/
+}
 
-.button{
-  /*position: absolute;
-  bottom:4em;
-  right:4em;
+.button-container button{
+  position: absolute;
+  bottom:2em;
+  right:1em;
   background-color:#8F0005;
-  border-radius:1.5em;*/
+  border-radius:1.5em;
   color:white;
-  /*text-transform:uppercase;
-  padding:1em 1.5em;*/
+  text-transform:uppercase;
+  padding:1.5em 3em;
+  
   } 
 
 

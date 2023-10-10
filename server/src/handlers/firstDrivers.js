@@ -1,3 +1,5 @@
+//Este handler toma los drivers por Name de la api y de la base de datos
+
 const { getByName } = require("../controllers/getByName");
 const { getBaseName } = require("../controllers/getBaseName");
 const mayusName = require('./mayusName');
@@ -6,22 +8,22 @@ const mayusName = require('./mayusName');
 
 const firstDrivers = async (req, res) => {
 
-//console.log('Entrando a la ruta')
-    //res.status(200).send('Los primeros drivers')
       try {
         
         const { name } = req.query; // tomamos el valor de name de query
 
-        const newname = mayusName(name); //condicionamos el name para la busqueda     
+        const newname = mayusName(name); //condicionamos el name para la busqueda
+             
          //buscamos el/los driver(s) en la api
         const driversApi = await getByName(newname);
           //busco en la base de datos
         const driversBD = await getBaseName(newname);
         let nameDrivers = [...driversApi,...driversBD];
+        //toma los primeros quince nombres
         let primerosQuince = nameDrivers.slice(0,15);
 
-     // evaluamos si no hay drivers con ese nombre
-      if (primerosQuince.length ===0) throw new Error('The driver was not found');
+     // evaluamos si no hay drivers con ese nombre y lo enviamos al cliente
+      if (primerosQuince.length ===0) throw new Error('Driver was not found');
       return res.status(200).json(primerosQuince);
    
     

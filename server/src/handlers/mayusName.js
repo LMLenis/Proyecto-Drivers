@@ -1,6 +1,6 @@
-
+//Esta funcion toma un nombre y lo estandariza bajo el formato Nombre, la primera en mayuscula y
+//las otras letras en minusculas
 const mayusName = (name) => {
-
 
 let primerletra = name.charAt(0); // sacamos la primera letra y la pasamos a mayusculas
 let mayuscula = primerletra.toUpperCase();

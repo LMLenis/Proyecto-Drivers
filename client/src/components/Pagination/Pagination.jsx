@@ -1,8 +1,10 @@
+//Este componenete se encarga de llamar a la Card y primero identifica si el driver es de la Api o
+// de la base de datos y prepara la información para pasar adecuadamente los parametros
+
 import CardList from '../CardList/CardList'
 import style from "./Pagination.module.css";
 
 const Pagination = ({drivers}) =>{
-
 
     let escuderias = [];
     return (
@@ -12,6 +14,7 @@ const Pagination = ({drivers}) =>{
      <div className={style.container}>
          
         { drivers?.map((drive) => {
+            //drivers de la API
          if (Number(drive.id)){
              return <CardList
                    key = {drive?.id}
@@ -23,12 +26,14 @@ const Pagination = ({drivers}) =>{
                    birthDay={drive?.dob}            
                />
          } else {
+            // saca los teams que viene con los drivers de la base de datos y las convierte de un
+            //arreglo de objetos a un string de teams separados por comas
             let newDriverTeam = [];
             for (let i=0; i<drive.Teams?.length; i++) {
                 newDriverTeam.push(drive.Teams[i].name)
              }
              escuderias = newDriverTeam.toString();
-             //console.log(escuderias);
+             //drivers de la Base de Datos
             return <CardList
                    key = {drive?.id}
                    id = {drive?.id}
