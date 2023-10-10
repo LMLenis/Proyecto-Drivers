@@ -14,6 +14,7 @@ const Home = () =>{
     const drivers = useSelector((state) => state.driverShow);
     const teams = useSelector((state) => state.allTeams);
     const [searchString, setSearchString] = useState("");
+    const [error, setError] = useState("");
 
     // se ordenan los teams para la busqueda
     let sortedTeams = teams.sort((a,b) => a.name.localeCompare(b.name) );
@@ -35,18 +36,23 @@ const Home = () =>{
 
    
     
-     //console.log(drivers);
 
       const handleChange = (event) => {
         event.preventDefault();
         setSearchString(event.target.value);
+        setError("")
       }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        dispatch(getDriverName(searchString));
+        try {
+        await dispatch(getDriverName(searchString));
         setCurrentPage(1)
         setInput(1)
+        } catch (error) {
+            setError(error)
+        }
+        
     }
     
     const handleOrder = (event) => {
@@ -101,10 +107,11 @@ const Home = () =>{
 
     return (
         <div>
-            <button className='button' type = "submit" onClick = {handleSubmitAll}>All Drivers</button>
+            <button className='button' type = "submit" onClick = {handleSubmitAll}>Remove Filters</button>
 
             <input type='search' onChange={handleChange} placeholder = "Search"/>
             <button className='button' type = "submit" onClick= {handleSubmit}>Search</button>
+            
             
             <label className='label'>Order</label>         
             <select onChange ={handleOrder}> 
@@ -114,6 +121,7 @@ const Home = () =>{
             </select>
             <label className='label'>Team</label>
             <select onChange = {handleFilter}name="teams">
+            <option selected={true} disabled >Select option</option>
                { sortedTeams?.map((team) => <option key={team.id} value={team.name}>{team.name}</option>)}
              </select>
 
@@ -126,7 +134,7 @@ const Home = () =>{
             </select>
             <br>
             </br>
-            
+            <span className='span'>{error}</span>
             <button className='button2'value='back' type = "submit" onClick= {pageHandler}>{'<<'}</button>
             <input className='input' type="text" name ='page' value={input} onChange = {pageChange} onKeyDown={event => enterInput(event)}/>
             <label className='label2'> de {totalPages}</label>

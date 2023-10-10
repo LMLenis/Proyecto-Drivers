@@ -60,7 +60,7 @@ describe("Test de RUTAS", () => {
                 
             ];
 
-            propiedades.forEach(prop=>{
+            valores.forEach(prop=>{
                 expect(body).toHaveProperty(prop)
             });
 

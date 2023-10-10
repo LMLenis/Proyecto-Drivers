@@ -58,12 +58,13 @@ export const getDriverName = (name) => {
     return async (dispatch) => {
         try{
             const {data} = await axios.get(endpoint);
+
             return dispatch({
                 type: GET_DRIVER_NAME, 
                 payload: data
             });
         }catch (error) {
-            console.log(error);
+            throw error.response.data
         }
     };
 };
@@ -101,7 +102,6 @@ export const createDriver = (newDriver) => {
     
     console.log(newDriver);
     return async (dispatch) => {
-        console.log(newDriver)
         try{
             const {data} = await axios.post(endpoint, newDriver);
             return dispatch({
@@ -109,7 +109,7 @@ export const createDriver = (newDriver) => {
                 payload: data,           
             });
         } catch (error) {
-            console.log(error);
+            throw (error.response.data);
         }
     };  
 }

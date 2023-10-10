@@ -1,26 +1,24 @@
 import { Link } from "react-router-dom";
 import  "./cardList.css";
 
-//import { useDispatch } from "react-redux";
-
 
 
 
 const CardList = ({ id, name, lastname, image, teams, birthDay }) => {
-    //const dispatch = useDispatch();
-  
-   //console.log(id, teams)
+ 
    return (
     <div className ='container.card'>   
-        <div className='title'>
-            <Link to={`/home/${id}`}>
-                {
-                    <h2>{`${name} ${lastname}`}</h2>
-                }
-            </Link>
-        </div>
+        
         <div className="container">
+        
             <div className='card'>
+                <div className='title'>
+                    <Link to={`/home/${id}`}>
+                    {
+                    <h2>{`${name} ${lastname}`}</h2>
+                    }
+                    </Link>
+                </div>
                 <img src= {image} alt={name} />
                 <p className ='text'>{teams}</p>
                 <p className ='text'>{birthDay}</p>
