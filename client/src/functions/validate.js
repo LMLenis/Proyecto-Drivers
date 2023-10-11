@@ -22,8 +22,8 @@ const validate = (state) => {
     errors.birthDay = 'Format YYYY-MM-DD'
     }
 
-    if (state.description.length > 250) {
-      errors.description = 'The description must be less than 250 characters long'
+    if (state.description.length > 500) {
+      errors.description = 'The description must be less than 500 characters long'
     }
 
     if (state.image && !patronUrl.test(state.image)){

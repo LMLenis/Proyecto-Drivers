@@ -7,8 +7,7 @@
 //con el id de los objetos originales y organizar estos últimos
 
 
-
-const sortAlphabetic = (paramDrivers) => {
+const sortAlphabetic = (paramDrivers, orden) => {
     let arrayDriver= [];
     let arraySort=[];
     
@@ -18,13 +17,16 @@ const sortAlphabetic = (paramDrivers) => {
             
         }else{
             arrayDriver.push({id:paramDrivers[i].id, name:paramDrivers[i].name});
-        }
-        
+        }    
     }
 
+    console.log(orden)
+    if (orden === 'A') {
     arrayDriver.sort((a,b) => a.name.localeCompare(b.name) );
-
-    //console.log(arrayDriver)
+    }else {
+    arrayDriver.sort((a,b) => b.name.localeCompare(a.name) );
+    }
+    
 
     for (let i=0; i<arrayDriver.length; i++){
         for(let j=0; j<paramDrivers.length;j++){

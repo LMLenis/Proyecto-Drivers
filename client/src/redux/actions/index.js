@@ -1,4 +1,5 @@
-import { GET_ALL_DRIVERS, GET_DRIVER_DETAIL, GET_DRIVER_NAME, GET_ALL_TEAMS, CREATE_DRIVER, FILTER, ORDER } from "../actions/actions-types";
+import { GET_ALL_DRIVERS, GET_DRIVER_DETAIL, GET_DRIVER_NAME,
+         GET_ALL_TEAMS, CREATE_DRIVER, FILTER, ORDER, CLEAR_DETAIL } from "../actions/actions-types";
 import axios from "axios";
 
 
@@ -132,4 +133,11 @@ export const orderDrivers = (orden) => {
         payload: orden
     }
 };
+
+export const clearDetail = () =>{
+    return {
+        type: CLEAR_DETAIL,
+        payload: ""
+    }
+}
 

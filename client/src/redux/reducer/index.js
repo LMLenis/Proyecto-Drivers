@@ -1,4 +1,5 @@
-import { GET_ALL_DRIVERS, GET_DRIVER_DETAIL, GET_DRIVER_NAME, CREATE_DRIVER, FILTER, ORDER, GET_ALL_TEAMS } from "../actions/actions-types";
+import { GET_ALL_DRIVERS, GET_DRIVER_DETAIL, GET_DRIVER_NAME,
+     CREATE_DRIVER, FILTER, ORDER, GET_ALL_TEAMS, CLEAR_DETAIL} from "../actions/actions-types";
 import filterTeams from '../../functions/filterTeams';
 import sortAlphabetic from '../../functions/sortAlphabetic';
 import sortByBirthDay from '../../functions/sortByBirthDay';
@@ -7,7 +8,8 @@ const initialState = {
     allDrivers: [],
     driverDetail: {},
     driverShow: [],
-    allTeams: []
+    allTeams: [],
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -63,13 +65,29 @@ const reducer = (state = initialState, action) => {
         
         case ORDER:
             let allDriversOrder = [...state.allDrivers]
-            if(action.payload ==='alpha'){
-                allDriversOrder = sortAlphabetic(state.driverShow);
-            }else{
-                allDriversOrder = sortByBirthDay(state.driverShow);
+            if(action.payload ==='alphaA'){
+                console.log('A')
+                allDriversOrder = sortAlphabetic(state.driverShow,'A');
+            }
+            if(action.payload ==='alphaB'){
+                console.log('B')
+                allDriversOrder = sortAlphabetic(state.driverShow,'B');
+            }
+            if (action.payload ==='birthDayA'){
+                console.log('BA')
+                allDriversOrder = sortByBirthDay(state.driverShow,'A');
+            } 
+            if (action.payload ==='birthDayB'){
+                console.log('BB')
+                allDriversOrder = sortByBirthDay(state.driverShow,'B');
             }
             return {...state, driverShow:allDriversOrder}
-                
+
+        case CLEAR_DETAIL:
+            return {
+                ...state,
+                driverDetail: action.payload
+            }
                     
         default:
             return {...state

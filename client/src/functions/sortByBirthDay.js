@@ -9,7 +9,7 @@
 //con el id de los objetos originales y organizar estos últimos
 
 
-const sortByBirthDay = (paramDrivers) => {
+const sortByBirthDay = (paramDrivers, order) => {
     let arrayDriver= [];
     let arraySort=[];
     
@@ -24,8 +24,11 @@ const sortByBirthDay = (paramDrivers) => {
         
     }
     
+    if (order ==='A'){
     arrayDriver.sort((a,b) => new Date(a.birthDay).getTime() - new Date(b.birthDay).getTime());
-
+    }else {
+    arrayDriver.sort((a,b) => new Date(b.birthDay).getTime() - new Date(a.birthDay).getTime());   
+    }
     
     for (let i=0; i<arrayDriver.length; i++){
         for(let j=0; j<paramDrivers.length;j++){

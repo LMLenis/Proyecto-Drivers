@@ -25,6 +25,7 @@ const Home = () =>{
     let sortedTeams = teams.sort((a,b) => a.name.localeCompare(b.name) );
     
     //Variables de Pagination
+    
     const [currentPage, setCurrentPage] = useState(1);
     const [input, setInput] = useState(1);
     const elementsPerPage = 9;
@@ -115,18 +116,27 @@ const Home = () =>{
 
     return (
         <div>
-            <button className='button' type = "submit" onClick = {handleSubmitAll}>Remove Filters</button>
+            <button className='button' type = "submit" onClick = {handleSubmitAll}>Refresh</button>
 
-            <input type='search' onChange={handleChange} placeholder = "Search"/>
+            <input className='input2'type='search' onChange={handleChange} placeholder = "Search"/>
             <button className='button' type = "submit" onClick= {handleSubmit}>Search</button>
             
             
-            <label className='label'>Order</label>         
+            <label className='label'>Order Name</label>         
             <select onChange ={handleOrder}> 
                 <option selected={true} disabled>Select option</option>           
-                <option value="alpha">in alphabetical order</option>
-                <option value="birthDay">birth day order</option>
+                <option value="alphaA">Ascending</option>
+                <option value="alphaB">Descending </option>
             </select>
+
+            <label className='label'>BirthDay</label>         
+            <select onChange ={handleOrder}> 
+                <option selected={true} disabled>Select option</option>           
+                <option value="birthDayA">Ascending</option>
+                <option value="birthDayB">Descending</option>
+            </select>
+
+
             <label className='label'>Team</label>
             <select onChange = {handleFilter}name="teams">
             <option selected={true} disabled >Select option</option>
@@ -136,8 +146,8 @@ const Home = () =>{
              <label className='label'>Origin</label>      
              <select onChange = {handleFilter}> 
                 <option selected={true} disabled >Select option</option>
-                <option value="baseDatos">Data Base Drivers</option>
-                <option value="api">Api Drivers</option>
+                <option value="baseDatos">Data Base</option>
+                <option value="api">Api</option>
                 <option value="allDrivers">All Drivers</option>
             </select>
             <br>

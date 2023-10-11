@@ -7,3 +7,4 @@ export const GET_ALL_TEAMS = "GET_ALL_TEAMS";
 export const CREATE_DRIVER = "CREATE_DIRVER";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
+export const CLEAR_DETAIL = "CLEAR_DETAIL";

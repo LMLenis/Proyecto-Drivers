@@ -5,9 +5,8 @@
 }
 
 .button {
-    padding: 0.3em 1em;
+    padding: 0.3em 0.5em;
     margin: 1em;
-    border: none;
     background: rgb(100, 200, 255);
     cursor: pointer;
     font-size: 12px;
@@ -16,7 +15,6 @@
   .button2 {
     padding: 0.3em 1em;
     margin: 0;
-    /*border: none;*/
     cursor: pointer;
     font-size: 12px;
     
@@ -43,6 +41,14 @@
     height: 15px;
     margin: 0.5rem;
     text-align: center;
+    border-color: 1px solid #242424;
+  }
+
+  .input2 {
+    width: 150px;
+    height: 20px;
+    margin: 0.5rem;
+    /*text-align: center;*/
     border-color: 1px solid #242424;
   }
 
