@@ -1,8 +1,4 @@
-/* eslint-disable react/prop-types */
-//Este componenete se encarga de llamar a la Card y primero identifica si el driver es de la Api o
-// de la base de datos y prepara la información para pasar adecuadamente los parametros
-
-import CardList from '../CardList/CardList.jsx'
+import CardList from '../CardList/CardList';
 import style from "./Pagination.module.css";
 
 const Pagination = ({drivers}) =>{
