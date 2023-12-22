@@ -1,4 +1,8 @@
-import CardList from '../CardList/CardList';
+
+
+
+
+import CardList from "../CardList/CardList";
 import style from "./Pagination.module.css";
 
 const Pagination = ({drivers}) =>{
