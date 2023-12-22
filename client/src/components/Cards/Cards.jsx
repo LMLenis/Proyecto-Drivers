@@ -2,7 +2,7 @@
 
 
 
-import CardList from "../CardList/CardList";
+import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
 const Cards = ({drivers}) =>{
@@ -17,7 +17,7 @@ const Cards = ({drivers}) =>{
         { drivers?.map((drive) => {
             //drivers de la API
          if (Number(drive.id)){
-             return <CardList
+             return <Card
                    key = {drive?.id}
                    id = {drive?.id}
                    name={drive?.name.forename}
@@ -35,7 +35,7 @@ const Cards = ({drivers}) =>{
              }
              escuderias = newDriverTeam.toString();
              //drivers de la Base de Datos
-            return <CardList
+            return <Card
                    key = {drive?.id}
                    id = {drive?.id}
                    name={drive?.name}

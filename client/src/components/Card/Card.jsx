@@ -2,12 +2,12 @@
 //Este componenete renderiza la card del driver
 
 import { Link } from "react-router-dom";
-import  "./cardList.css";
+import  "./Card.css";
 
 
 
 
-const CardList = ({ id, name, lastname, image, teams, birthDay }) => {
+const Card = ({ id, name, lastname, image, teams, birthDay }) => {
  
    return (
     <div className ='container.card'>   
@@ -32,4 +32,4 @@ const CardList = ({ id, name, lastname, image, teams, birthDay }) => {
 }
 
 
-export default CardList;
+export default Card;
