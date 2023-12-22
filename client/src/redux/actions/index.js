@@ -9,7 +9,7 @@ import axios from "axios";
 // End-Point: 'http://localhost:3001/drivers'.
 
 export const getAllDrivers = () => {
-    const endpoint = 'http://localhost:3001/drivers';
+    const endpoint = '/drivers';
     return async (dispatch) => {
         try{
             const {data} = await axios.get(endpoint);
@@ -30,7 +30,7 @@ export const getAllDrivers = () => {
 // End-Point: 'http://localhost:3001/drivers/:id'.
 
 export const getDriverDetail = (id) => {
-    const endpoint = 'http://localhost:3001/drivers/' + id;
+    const endpoint = '/drivers/' + id;
     
     return async (dispatch) => {
         try {
@@ -54,7 +54,7 @@ export const getDriverDetail = (id) => {
 
 export const getDriverName = (name) => {
     //console.log(name)
-    const endpoint = `http://localhost:3001/drivers/name?name=${name}`;
+    const endpoint = `/drivers/name?name=${name}`;
     
     return async (dispatch) => {
         try{
@@ -74,7 +74,7 @@ export const getDriverName = (name) => {
 //Esta función debe realizar una petición al Back-End para traer de la base de datos todos los Teams.
 // End-Point: 'http://localhost:3001/teams'.
 export const getAllTeams = () => {
-    const endpoint = 'http://localhost:3001/teams';
+    const endpoint = '/teams';
     return async (dispatch) => {
         try {    
             const {data} = await axios.get(endpoint);
@@ -99,7 +99,7 @@ export const getAllTeams = () => {
 
 
 export const createDriver = (newDriver) => {
-    const endpoint = 'http://localhost:3001/drivers'
+    const endpoint = '/drivers'
     
     //console.log(newDriver);
     return async (dispatch) => {
@@ -137,7 +137,7 @@ export const orderDrivers = (orden) => {
 export const clearDetail = () =>{
     return {
         type: CLEAR_DETAIL,
-        payload: ""
+        payload: {}
     }
 }
 

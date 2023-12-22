@@ -125,8 +125,8 @@ const Home = () =>{
             <label className='label'>Order Name</label>         
             <select onChange ={handleOrder}> 
                 <option selected={true} disabled>Select option</option>           
-                <option value="alphaA">Ascending</option>
-                <option value="alphaB">Descending </option>
+                <option value="alphaA">A-Z</option>
+                <option value="alphaB">Z-A </option>
             </select>
 
             <label className='label'>BirthDay</label>         
