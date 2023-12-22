@@ -1,7 +1,7 @@
 //Componente principal de la aplicación
 
 import React from "react";
-import Pagination from "../../components/Pagination/Pagination";
+import Cards from "../../components/Cards/Cards";
 import { useEffect, useState} from "react";
 import { getAllDrivers, orderDrivers, filterDrivers, getDriverName, getAllTeams } from "../../redux/actions/index";
 import { useSelector, useDispatch } from "react-redux";
@@ -159,7 +159,7 @@ const Home = () =>{
             <button className='button2'value ='next'type = "submit" onClick= {pageHandler}>{'>>'}</button>
             
              
-            <Pagination drivers = {currentElements}/>
+            <Cards drivers = {currentElements}/>
             
              
         </div>

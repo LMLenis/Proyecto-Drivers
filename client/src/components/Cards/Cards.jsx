@@ -3,9 +3,9 @@
 
 
 import CardList from "../CardList/CardList";
-import style from "./Pagination.module.css";
+import style from "./Cards.module.css";
 
-const Pagination = ({drivers}) =>{
+const Cards = ({drivers}) =>{
 
     let escuderias = [];
     return (
@@ -54,7 +54,7 @@ const Pagination = ({drivers}) =>{
   
 }
 
-export default Pagination;
+export default Cards;
 
 
 
