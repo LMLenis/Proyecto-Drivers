@@ -21,7 +21,7 @@ const Landing = () =>{
     return (
      <div className="button-container">
         
-        <img src = {photoBack} width="1300px" heigtht="380px" alt='' /> 
+        <img src = {photoBack} alt='' /> 
         
         <button ><Link to='/home' >CONTINUAR</Link></button>  
      </div>
