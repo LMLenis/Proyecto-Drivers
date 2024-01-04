@@ -1,20 +1,18 @@
-/* .content {
-    /*display: flex;*/
+ .contentland {
+    display: flex;
     /*align-items: center;*/
-    /*justify-content: center;*/
-   
-    /*padding: 200px 650px;
+    justify-content: center;
+    width: auto;
+    height: 500px;
+    padding: 100px 100px;
     background-image: url('../../assets/Formula1.png');
-    /*width: 100%;*/
-    /*height: 100%;
-    background-position: center;
     background-repeat: no-repeat;
+    background-position: 20% 20%;
     background-size:cover; 
-    
-  } */
+  } 
 
  
-.button-container {
+/*.button-container {
  display:flex;
  position:relative;
 }
@@ -22,17 +20,18 @@
 .button-container img {
   width:100%;
   height: auto;
- }
+ }*/
 
-.button-container button{
+.contentland button{
   position: absolute;
-  bottom:2em;
-  right:0.7em;
+  bottom:5em;
+  right:6em;
+  width: 200px;
+  height: 60px;
   background-color:#8F0005;
   border-radius:1.5em;
   color:white;
   text-transform:uppercase;
-  padding:1.5em 3em;
   
   } 
 

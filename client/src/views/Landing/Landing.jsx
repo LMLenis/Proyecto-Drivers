@@ -19,11 +19,11 @@ const Landing = () =>{
 
 
     return (
-     <div className="button-container">
+     <div className="contentland">
         
-        <img src = {photoBack} alt='' /> 
+       {/* <img src = {photoBack} alt='' /> */}
         
-        <button ><Link to='/home' >CONTINUAR</Link></button>  
+        <button><Link to='/home' >CONTINUAR</Link></button>  
      </div>
 
     )

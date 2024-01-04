@@ -159,11 +159,11 @@ const Home = () =>{
 
            
       
-            <div>
+            <div className="cardlist">
             <Cards drivers = {currentElements}/>
             </div>
 
-            <div>
+            <div >
             <span className='span'>{error}</span>
             <button className='button2'value='back' type = "submit" onClick= {pageHandler}>{'<<'}</button>
             <input className='input' type="text" name ='page' value={input} onChange = {pageChange} onKeyDown={event => enterInput(event)}/>

@@ -5,6 +5,11 @@
     flex-wrap: wrap;
 }
 
+.homecont select{
+  border-radius: 4px;
+  height: 22px;
+}
+
 .button {
     padding: 0.3em 0.5em;
     margin: 1em;
@@ -42,15 +47,17 @@
     margin: 0.5rem;
     text-align: center;
     border-color: 1px solid #242424;
+    border-radius: 4px;
   }
 
   .input2 {
     width: 150px;
-    height: 20px;
+    height: 25px;
     margin: 0.5rem;
     margin-right: -5px;
     /*text-align: center;*/
     border-color: 1px solid #242424;
+    border-radius: 4px;
   }
 
   .span {
@@ -63,4 +70,8 @@
     border-width: 1px;
     border-color:red;
     /*margin-right: 30em;*/
+  }
+
+  .cardlist {
+    height: 640px;
   }
