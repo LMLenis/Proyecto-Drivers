@@ -15,14 +15,18 @@
 
  
 .button-container {
- display:inline-block;
+ display:flex;
  position:relative;
 }
+
+.button-container img {
+  max-width:1300px;
+ }
 
 .button-container button{
   position: absolute;
   bottom:2em;
-  right:1em;
+  right:0.2em;
   background-color:#8F0005;
   border-radius:1.5em;
   color:white;
@@ -30,6 +34,7 @@
   padding:1.5em 3em;
   
   } 
+
 
 
   .divContent {

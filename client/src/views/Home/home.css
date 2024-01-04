@@ -1,7 +1,8 @@
 .homecont{
     display: flex;
+    align-items: center;
     justify-content:space-between;
-
+    flex-wrap: wrap;
 }
 
 .button {
@@ -14,7 +15,6 @@
 
   .button2 {
     padding: 0.3em 1em;
-    margin: 0;
     cursor: pointer;
     font-size: 12px;
     
@@ -22,7 +22,7 @@
 
   .label {
     padding: 0.3em 0.5em;
-    margin: 0.5em;
+    margin: 0.8em;
     font-size: 12px;
     color: red
 

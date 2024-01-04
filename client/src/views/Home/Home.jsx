@@ -116,51 +116,58 @@ const Home = () =>{
 
     return (
         <div>
+            <div className="homecont">
             <button className='button' type = "submit" onClick = {handleSubmitAll}>Refresh</button>
 
             <input className='input2'type='search' onChange={handleChange} placeholder = "Search"/>
             <button className='button' type = "submit" onClick= {handleSubmit}>Search</button>
             
             
-            <label className='label'>Order Name</label>         
+            <label className='label'>Order Name        
             <select onChange ={handleOrder}> 
                 <option selected={true} disabled>Select option</option>           
                 <option value="alphaA">A-Z</option>
                 <option value="alphaB">Z-A </option>
             </select>
+            </label> 
 
-            <label className='label'>BirthDay</label>         
+            <label className='label'>BirthDay        
             <select onChange ={handleOrder}> 
                 <option selected={true} disabled>Select option</option>           
                 <option value="birthDayA">Ascending</option>
                 <option value="birthDayB">Descending</option>
             </select>
+            </label> 
 
-
-            <label className='label'>Team</label>
+            <label className='label'>Team
             <select onChange = {handleFilter}name="teams">
             <option selected={true} disabled >Select option</option>
                { sortedTeams?.map((team) => <option key={team.id} value={team.name}>{team.name}</option>)}
              </select>
+             </label>
 
-             <label className='label'>Origin</label>      
+             <label className='label'>Origin     
              <select onChange = {handleFilter}> 
                 <option selected={true} disabled >Select option</option>
                 <option value="baseDatos">Data Base</option>
                 <option value="api">Api</option>
                 <option value="allDrivers">All Drivers</option>
             </select>
-            <br>
-            </br>
+            </label> 
+            </div>
+
+            <div>
             <span className='span'>{error}</span>
             <button className='button2'value='back' type = "submit" onClick= {pageHandler}>{'<<'}</button>
             <input className='input' type="text" name ='page' value={input} onChange = {pageChange} onKeyDown={event => enterInput(event)}/>
             <label className='label2'> de {totalPages}</label>
             <button className='button2'value ='next'type = "submit" onClick= {pageHandler}>{'>>'}</button>
-            
-             
+
+            </div>
+      
+            <div>
             <Cards drivers = {currentElements}/>
-            
+            </div>
              
         </div>
 
