@@ -7,7 +7,7 @@ import { Routes, Route, useLocation} from "react-router-dom";
 import './App.css';
 import axios from 'axios';
 
-axios.defaults.baseURL="https://proyecto-drivers-production.up.railway.app";
+axios.defaults.baseURL="http://localhost:3001";
 
 function App() {
   const location = useLocation()

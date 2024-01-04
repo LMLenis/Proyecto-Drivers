@@ -73,5 +73,9 @@
   }
 
   .cardlist {
-    height: 640px;
+    height: auto;
+  }
+
+  .pagination {
+    margin: bottom 5px;
   }
