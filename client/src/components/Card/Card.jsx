@@ -10,8 +10,7 @@ import  "./Card.css";
 const Card = ({ id, name, lastname, image, teams, birthDay }) => {
  
    return (
-    <div className ='container.card'>   
-        
+           
         <div className="container">
         
             <div className='card'>
@@ -27,8 +26,7 @@ const Card = ({ id, name, lastname, image, teams, birthDay }) => {
                 <p className ='text'>{birthDay}</p>
             </div>
         </div>
-    </div>
-    )
+      )
 }
 
 

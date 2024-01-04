@@ -1,15 +1,17 @@
 .container {
-    /*background-color: rgb(196, 196, 196);*/
-    max-width: 120vw;
-    flex-wrap: wrap;
+    /*max-width: 120vw;*/
+    /*flex-wrap: wrap;*/
     justify-content: space-around;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 10px;
-    margin: 0;
+    display: flex;
+    /*grid-template-columns: 1fr 1fr 1fr;
+    /*grid-template-rows: 1fr 1fr 1fr;*/
+    grid-gap: 5px;
+    margin-top: 0px;
     padding:1px;
     /*height: 650px;*/
+    /*display: flex;*/
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .button1{

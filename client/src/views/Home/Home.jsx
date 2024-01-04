@@ -119,9 +119,10 @@ const Home = () =>{
             <div className="homecont">
             <button className='button' type = "submit" onClick = {handleSubmitAll}>Refresh</button>
 
+            <div>
             <input className='input2'type='search' onChange={handleChange} placeholder = "Search"/>
             <button className='button' type = "submit" onClick= {handleSubmit}>Search</button>
-            
+            </div>
             
             <label className='label'>Order Name        
             <select onChange ={handleOrder}> 
@@ -156,6 +157,12 @@ const Home = () =>{
             </label> 
             </div>
 
+           
+      
+            <div>
+            <Cards drivers = {currentElements}/>
+            </div>
+
             <div>
             <span className='span'>{error}</span>
             <button className='button2'value='back' type = "submit" onClick= {pageHandler}>{'<<'}</button>
@@ -163,10 +170,6 @@ const Home = () =>{
             <label className='label2'> de {totalPages}</label>
             <button className='button2'value ='next'type = "submit" onClick= {pageHandler}>{'>>'}</button>
 
-            </div>
-      
-            <div>
-            <Cards drivers = {currentElements}/>
             </div>
              
         </div>

@@ -48,6 +48,7 @@
     width: 150px;
     height: 20px;
     margin: 0.5rem;
+    margin-right: -5px;
     /*text-align: center;*/
     border-color: 1px solid #242424;
   }

@@ -20,13 +20,14 @@
 }
 
 .button-container img {
-  max-width:1300px;
+  width:100%;
+  height: auto;
  }
 
 .button-container button{
   position: absolute;
   bottom:2em;
-  right:0.2em;
+  right:0.7em;
   background-color:#8F0005;
   border-radius:1.5em;
   color:white;
